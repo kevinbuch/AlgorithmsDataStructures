@@ -9,9 +9,15 @@ class MyStack
   end
 
   def push(element)
+    linked_list.prepend(element)
   end
 
   def pop
+    this = linked_list.head
+    if this
+      linked_list.head = this.next_node
+      this.value
+    end
   end
 
   private
