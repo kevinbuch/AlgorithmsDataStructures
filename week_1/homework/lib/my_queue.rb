@@ -9,9 +9,15 @@ class MyQueue
   end
 
   def push(element)
+    linked_list.append(element)
   end
 
   def pop
+    this = linked_list.head
+    if this
+      linked_list.head = this.next_node
+      this.value
+    end
   end
 
   private
