@@ -1,3 +1,7 @@
+#Go here:
+#
+# http://www.meetup.com/ChicagoRuby/events/152058172/
+
 require 'set'
 require 'phone_number_search'
 
@@ -20,7 +24,7 @@ describe PhoneNumberSearch do
     xit "enumerates the potential strings of a phone number" do
       phone_number = [2,3]
       PhoneNumberSearch.enumerate_strings(phone_number).should =~ [
-        "a", "b", "c", "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"
+        "", "a", "b", "c", "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"
       ]
     end
   end
