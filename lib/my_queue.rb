@@ -1,7 +1,7 @@
 # Use a linked list to implement
 # a Queue.
 
-require_relative '../../in_class/lib/linked_list'
+require 'linked_list'
 
 class MyQueue
   def initialize

@@ -1,4 +1,4 @@
-require_relative '../../../week_2/homework/lib/scoring_array'
+require 'scoring_array'
 require 'scoring_linked_list'
 require 'binary_search'
 

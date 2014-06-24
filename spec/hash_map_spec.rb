@@ -19,6 +19,8 @@ describe HashMap do
     expect(map.backing_array.size).to eq(2)
     map.set("more", "testing")
     expect(map.backing_array.size).to eq(4)
+    expect(map.get("more")).to eq("testing")
+    expect(map.get("test")).to eq("ing")
   end
 
   it "handles conflicts" do

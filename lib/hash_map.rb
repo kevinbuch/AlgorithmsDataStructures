@@ -1,6 +1,6 @@
-require_relative '../../in_class/lib/hash_function'
+require 'hash_function'
 
-class ChainedHashMap
+class HashMap
   attr_accessor :backing_array, :factor
 
   def initialize(factor = 2)
@@ -9,15 +9,26 @@ class ChainedHashMap
   end
 
   def get(key)
-    # hash for index
+    backing_array[bucket(key)]
   end
 
   def set(key, obj)
     enlarge if needs_expanding?
-    # add at hashed index
+    backing_array[bucket(key)] = obj
   end
 
   private
+
+  def bucket(key)
+    hash = HashFunction.hash(key)
+    index = backing_array.index(hash)
+    if index
+      index + 1
+    else
+      backing_array[-2] = hash
+      -1
+    end
+  end
 
   def needs_expanding?
     backing_array.compact.size > (backing_array.size / factor)
@@ -25,7 +36,9 @@ class ChainedHashMap
 
   def enlarge
     next_backing_array = Array.new(backing_array.size * factor)
-    # copy
+    0.upto(backing_array.size - 1) do |i|
+      next_backing_array[i] = backing_array[i]
+    end
     self.backing_array = next_backing_array
   end
 end

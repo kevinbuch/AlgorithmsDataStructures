@@ -1,4 +1,4 @@
-require_relative '../../in_class/lib/tree_traversal'
+require 'tree_traversal'
 
 class PhoneNumberSearch
   def self.enumerate_strings(phone_number)

@@ -1,6 +1,6 @@
-require_relative '../../in_class/lib/hash_function'
+require 'hash_function'
 
-class HashMap
+class ChainedHashMap
   attr_accessor :backing_array, :factor
 
   def initialize(factor = 2)
